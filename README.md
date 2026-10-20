@@ -47,23 +47,6 @@ Los datos están en el archivo `mascotas.csv`. Al iniciar el programa se usa `if
 
 También se usa `ofstream` para guardar las mascotas, en el orden en que estén en ese momento, en el archivo `mascotas_ordenado.csv` cuando se elige la opción de guardar.
 
-## Complejidad
-
-Las operaciones principales del programa tienen estas complejidades:
-
-| Operación | Complejidad |
-|---|---|
-| Agregar una mascota al final de la lista | O(1) |
-| Cargar mascotas desde el archivo | O(n) |
-| Mostrar mascotas (en cualquier orden) | O(n) |
-| Guardar mascotas en el archivo | O(n) |
-| Buscar la mascota de una posición | O(n) |
-| Obtener un dato de una mascota | O(1) |
-| Ordenar con Merge Sort | O(n log n) |
-| Vaciar la lista (al recargar) | O(n) |
-
-**Complejidad final del programa:** cargar, mostrar, guardar y recargar son O(n), y ordenar es O(n log n). Como ordenar es lo más costoso, cada acción del menú es, en el peor caso, **O(n log n)**. En memoria, el programa guarda las n mascotas (O(n)) y usa O(log n) extra mientras ordena.
-
 
 ## Autora
 
