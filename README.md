@@ -1,6 +1,12 @@
-# Proyecto: Ordenar mascotas del refugio
+# Proyecto: Sistema de Ordenamiento de Mascotas en Refugio
 
-Programa en C++ que lee las mascotas de un archivo CSV, las guarda en una lista ligada y las ordena con Merge Sort. También se pueden agregar mascotas nuevas.
+## Descripción
+
+Este proyecto es un programa en C++ para organizar la información de las mascotas de un refugio. El programa carga los datos desde un archivo CSV, muestra las mascotas, las ordena por diferentes características y permite agregar mascotas nuevas. Los datos se guardan en una lista ligada y se ordenan con Merge Sort.
+
+## Problema que resuelve
+
+Un refugio recibe muchas mascotas y su información puede volverse difícil de organizar o de encontrar. Este programa mantiene esos datos ordenados y permite verlos por nombre, edad, especie o raza, para que sea más fácil consultarlos y ayudar a que cada mascota encuentre un hogar más rápido.
 
 ## Archivos
 
