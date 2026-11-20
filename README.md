@@ -15,13 +15,6 @@ Un refugio recibe muchas mascotas y su información puede volverse difícil de o
 - `main.cpp`: menú y manejo del archivo CSV.
 - `mascotas.csv`: datos de las mascotas (id, nombre, especie, raza, edad, tamaño).
 
-## Cómo correrlo
-
-```
-g++ main.cpp -o adopciones
-./adopciones
-```
-
 ## Menú
 
 1. Ordenar por nombre
@@ -38,9 +31,9 @@ Al agregar una mascota se piden nombre, especie, raza, tamaño y edad. El id se 
 
 ## Por qué esta estructura y este algoritmo
 
-Usé una **lista ligada** porque se pueden ir agregando mascotas al final sin mover nada (con el apuntador `fin` es O(1)) y solo necesito recorrerla de principio a fin, así que no hace falta que sea doble.
+Elegí una **lista ligada** porque las mascotas se van agregando de una en una y así no hay que mover ni copiar las demás. Con el apuntador `fin`, agregar al final es O(1). Como solo recorro la lista de principio a fin, no hizo falta que fuera doble.
 
-Para ordenar elegí Merge Sort porque se adapta bien a las listas ligada no ocupa entrar a los datos por posición y, para juntar las mitades, solo cambia los enlaces de los nodos. Además su complejidad es O(n log n) sin importar cómo vengan los datos, y es estable: si dos mascotas empatan en el criterio, se queda primero la que ya iba antes.
+Escogí **Merge Sort** porque se lleva muy bien con las listas ligadas. En una lista no se puede brincar directo a una posición, y este algoritmo no lo necesita: solo va partiendo la lista a la mitad y después la junta cambiando a dónde apunta cada nodo. Siempre tarda O(n log n), aunque los datos estén revueltos o ya casi ordenados, y es estable, o sea que si dos mascotas empatan se queda primero la que ya estaba antes.
 
 ## Complejidad
 
@@ -68,3 +61,18 @@ Notas:
 - `mergeSort` divide la lista a la mitad cada vez (log n niveles) y en cada nivel `dividir` y `mezclar` recorren n nodos. Por eso sale O(n log n).
 - `ordenar` hace el Merge Sort y luego recorre la lista una vez para encontrar el nuevo último nodo (`fin`), pero eso es O(n) y no cambia el total.
 - `agregarMascota` es O(n) por `siguienteId`, que recorre la lista para buscar el id más grande. Agregar al final en sí es O(1).
+
+## Cómo compilarlo y correrlo
+
+Desde la carpeta donde están los archivos:
+
+```
+g++ main.cpp -o adopciones
+./adopciones
+```
+
+El archivo `mascotas.csv` tiene que estar en la misma carpeta que el programa.
+
+## Autor
+
+[Tu nombre] - [Tu matrícula]
