@@ -57,11 +57,6 @@ n = número de mascotas.
 | guardarMascotas | O(n) |
 | agregarMascota | O(n) |
 
-Notas:
-- `mergeSort` divide la lista a la mitad cada vez (log n niveles) y en cada nivel `dividir` y `mezclar` recorren n nodos. Por eso sale O(n log n).
-- `ordenar` hace el Merge Sort y luego recorre la lista una vez para encontrar el nuevo último nodo (`fin`), pero eso es O(n) y no cambia el total.
-- `agregarMascota` es O(n) por `siguienteId`, que recorre la lista para buscar el id más grande. Agregar al final en sí es O(1).
-
 ## Cómo compilarlo 
 
 ```
