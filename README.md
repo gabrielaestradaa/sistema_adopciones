@@ -22,7 +22,7 @@ Un refugio recibe muchas mascotas y su información puede volverse difícil de o
 3. Ordenar por especie
 4. Ordenar por raza
 5. Mostrar sin ordenar
-6. Guardar el orden actual en `mascotas_ordenado.csv`
+6. Guardar el orden actual en mascotas_ordenado.csv
 7. Mostrar el orden actual
 8. Agregar una mascota nueva
 0. Salir
@@ -33,7 +33,7 @@ Al agregar una mascota se piden nombre, especie, raza, tamaño y edad. El id se 
 
 Elegí una **lista ligada** porque las mascotas se van agregando de una en una y así no hay que mover ni copiar las demás. Con el apuntador `fin`, agregar al final es O(1). Como solo recorro la lista de principio a fin, no hizo falta que fuera doble.
 
-Escogí **Merge Sort** porque se lleva muy bien con las listas ligadas. En una lista no se puede brincar directo a una posición, y este algoritmo no lo necesita: solo va partiendo la lista a la mitad y después la junta cambiando a dónde apunta cada nodo. Siempre tarda O(n log n), aunque los datos estén revueltos o ya casi ordenados, y es estable, o sea que si dos mascotas empatan se queda primero la que ya estaba antes.
+Escogí **Merge Sort** porque es de los algoritmos que mejor funcionan cuando los datos están en una lista ligada en una lista no se puede brincar directo a una posición, y este algoritmo no lo necesita ya que solo va partiendo la lista a la mitad y después la junta cambiando a dónde apunta cada nodo. Siempre tarda O(n log n), aunque los datos estén revueltos o ya casi ordenados, y es estable, o sea que si dos mascotas empatan se queda primero la que ya estaba antes.
 
 ## Complejidad
 
@@ -62,17 +62,12 @@ Notas:
 - `ordenar` hace el Merge Sort y luego recorre la lista una vez para encontrar el nuevo último nodo (`fin`), pero eso es O(n) y no cambia el total.
 - `agregarMascota` es O(n) por `siguienteId`, que recorre la lista para buscar el id más grande. Agregar al final en sí es O(1).
 
-## Cómo compilarlo y correrlo
-
-Desde la carpeta donde están los archivos:
+## Cómo compilarlo 
 
 ```
 g++ main.cpp -o adopciones
 ./adopciones
 ```
+## Autora
 
-El archivo `mascotas.csv` tiene que estar en la misma carpeta que el programa.
-
-## Autor
-
-[Tu nombre] - [Tu matrícula]
+Gabriela Estrada Guerrero :)
