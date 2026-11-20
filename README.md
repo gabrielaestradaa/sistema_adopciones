@@ -22,8 +22,6 @@ g++ main.cpp -o adopciones
 ./adopciones
 ```
 
-El archivo `mascotas.csv` tiene que estar en la misma carpeta.
-
 ## Menú
 
 1. Ordenar por nombre
@@ -42,7 +40,7 @@ Al agregar una mascota se piden nombre, especie, raza, tamaño y edad. El id se 
 
 Usé una **lista ligada** porque se pueden ir agregando mascotas al final sin mover nada (con el apuntador `fin` es O(1)) y solo necesito recorrerla de principio a fin, así que no hace falta que sea doble.
 
-Usé **Merge Sort** porque funciona bien con listas ligadas: no necesita acceso por índice y mezcla cambiando los enlaces. Además siempre es O(n log n) y es estable (si hay empate, se respeta el orden que ya tenían).
+Para ordenar elegí Merge Sort porque se adapta bien a las listas ligada no ocupa entrar a los datos por posición y, para juntar las mitades, solo cambia los enlaces de los nodos. Además su complejidad es O(n log n) sin importar cómo vengan los datos, y es estable: si dos mascotas empatan en el criterio, se queda primero la que ya iba antes.
 
 ## Complejidad
 
