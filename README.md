@@ -1,60 +1,66 @@
-# sistema-adopciones
+# Proyecto: Ordenar mascotas del refugio
 
-# Proyecto: Sistema de Ordenamiento de Mascotas en Refugio
+Programa en C++ que lee las mascotas de un archivo CSV, las guarda en una lista ligada y las ordena con Merge Sort. También se pueden agregar mascotas nuevas.
 
-## Descripción
+## Archivos
 
-Este proyecto es un programa en C++ para organizar la información de las mascotas de un refugio. El programa lee los datos desde un archivo, los guarda en una lista doblemente ligada, muestra las mascotas, las ordena por diferentes características con Merge Sort y guarda el resultado en otro archivo.
+- `mascota.h`: clase Mascota.
+- `lista.h`: lista ligada y Merge Sort.
+- `main.cpp`: menú y manejo del archivo CSV.
+- `mascotas.csv`: datos de las mascotas (id, nombre, especie, raza, edad, tamaño).
 
-## Problema que resuelve
-
-Un refugio puede tener información de muchas mascotas y a veces es difícil organizarla o encontrar lo que se busca, el programa mantiene los datos ordenados por nombre, edad, especie o raza para que sea más fácil consultarlos.
-
-## Estructura de datos utilizada
-
-Para guardar las mascotas se utiliza una lista doblemente ligada. Es una estructura lineal: las mascotas están una después de otra, y cada nodo guarda una mascota y dos apuntadores, uno al nodo anterior y otro al siguiente.
-
-Se eligió porque en un refugio llegan mascotas nuevas y la lista permite agregarlas al final sin mover las demás. Además, Merge Sort funciona bien con listas: para ordenar solo se cambian los enlaces entre los nodos, sin copiar datos.
-
-También se utiliza la clase `Mascota`, que guarda los datos de cada mascota: ID, nombre, especie, raza, edad y tamaño.
-
-Complejidad de la estructura:
-
-- Agregar una mascota al final: **O(1)**, porque la lista ya sabe dónde está el último nodo (`fin`) y no tiene que recorrer nada.
-- Saber cuántas mascotas hay: **O(1)**, porque la lista guarda el tamaño y solo lo regresa.
-- Recorrer toda la lista: **O(n)**, porque se pasa por cada mascota una vez.
-- Buscar la mascota de una posición: **O(n)**, porque la lista no tiene índices como un vector. Hay que empezar desde el primer nodo e ir avanzando hasta llegar (en un vector sería O(1)).
-- Obtener un dato de una mascota (por ejemplo `getNombre()`): **O(1)**, porque solo regresa un atributo que ya está guardado.
-- La lista usa memoria dinámica: cada nodo se crea con `new` y, al terminar, el destructor los borra todos con `delete`.
-
-## Algoritmo de ordenamiento
-
-Se utiliza Merge Sort para ordenar las mascotas,lo eligí porque divide la lista en partes más pequeñas, las ordena y después las une otra vez de forma ordenada. 
-
-La complejidad de Merge Sort es:
-
-- Mejor caso: **O(n log n)**
-- Caso promedio: **O(n log n)**
-- Peor caso: **O(n log n)**
-
-También es estable: si dos mascotas tienen el mismo valor, se quedan en el mismo orden que tenían. Por ejemplo, al ordenar por edad, las mascotas de la misma edad conservan su orden anterior.
-
-En el programa se usa para ordenar por nombre, edad, especie y raza. Las cuatro opciones usan el mismo algoritmo y solo cambia lo que se compara (1 = nombre, 2 = edad, 3 = especie, 4 = raza).
-
-## Lectura y escritura de archivos
-
-Los datos están en el archivo `mascotas.csv`. Al iniciar el programa se usa `ifstream` para leer el archivo y agregar cada mascota a la lista.
-
-También se usa `ofstream` para guardar las mascotas, en el orden en que estén en ese momento, en el archivo `mascotas_ordenado.csv` cuando se elige la opción de guardar.
-
-
-## Autora
-
-Gabriela Estrada Guerrero
-
-## Cómo compilar y ejecutar
+## Cómo correrlo
 
 ```
-g++ -std=c++11 -o programa main.cpp mascota.cpp lista.cpp ordenamiento.cpp
-./programa
+g++ main.cpp -o adopciones
+./adopciones
 ```
+
+El archivo `mascotas.csv` tiene que estar en la misma carpeta.
+
+## Menú
+
+1. Ordenar por nombre
+2. Ordenar por edad
+3. Ordenar por especie
+4. Ordenar por raza
+5. Mostrar sin ordenar
+6. Guardar el orden actual en `mascotas_ordenado.csv`
+7. Mostrar el orden actual
+8. Agregar una mascota nueva
+0. Salir
+
+Al agregar una mascota se piden nombre, especie, raza, tamaño y edad. El id se asigna solo y la mascota también se guarda en `mascotas.csv`.
+
+## Por qué esta estructura y este algoritmo
+
+Usé una **lista ligada** porque se pueden ir agregando mascotas al final sin mover nada (con el apuntador `fin` es O(1)) y solo necesito recorrerla de principio a fin, así que no hace falta que sea doble.
+
+Usé **Merge Sort** porque funciona bien con listas ligadas: no necesita acceso por índice y mezcla cambiando los enlaces. Además siempre es O(n log n) y es estable (si hay empate, se respeta el orden que ya tenían).
+
+## Complejidad
+
+n = número de mascotas.
+
+| Función | Complejidad |
+|---|---|
+| Constructores, getters y `mostrar` de Mascota | O(1) |
+| Constructor de la lista | O(1) |
+| `vaciar` y destructor | O(n) |
+| `agregarAlFinal` | O(1) |
+| `siguienteId` | O(n) |
+| `estaVacia`, `getTamano`, `getInicio` | O(1) |
+| `menorIgual` | O(1) |
+| `dividir` | O(n) |
+| `mezclar` | O(n) |
+| `mergeSort` | O(n log n) |
+| `ordenar` | O(n log n) |
+| `cargarMascotas` | O(n) |
+| `mostrarTodas` | O(n) |
+| `guardarMascotas` | O(n) |
+| `agregarMascota` | O(n) |
+
+Notas:
+- `mergeSort` divide la lista a la mitad cada vez (log n niveles) y en cada nivel `dividir` y `mezclar` recorren n nodos. Por eso sale O(n log n).
+- `ordenar` hace el Merge Sort y luego recorre la lista una vez para encontrar el nuevo último nodo (`fin`), pero eso es O(n) y no cambia el total.
+- `agregarMascota` es O(n) por `siguienteId`, que recorre la lista para buscar el id más grande. Agregar al final en sí es O(1).
