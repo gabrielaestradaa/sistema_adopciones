@@ -41,21 +41,21 @@ n = número de mascotas.
 
 | Función | Complejidad |
 |---|---|
-| Constructores, getters y `mostrar` de Mascota | O(1) |
+| Constructores, getters y mostrar de Mascota | O(1) |
 | Constructor de la lista | O(1) |
-| `vaciar` y destructor | O(n) |
-| `agregarAlFinal` | O(1) |
-| `siguienteId` | O(n) |
-| `estaVacia`, `getTamano`, `getInicio` | O(1) |
-| `menorIgual` | O(1) |
-| `dividir` | O(n) |
-| `mezclar` | O(n) |
-| `mergeSort` | O(n log n) |
-| `ordenar` | O(n log n) |
-| `cargarMascotas` | O(n) |
-| `mostrarTodas` | O(n) |
-| `guardarMascotas` | O(n) |
-| `agregarMascota` | O(n) |
+| vaciar y destructor | O(n) |
+| agregarAlFina` | O(1) |
+| siguienteI` | O(n) |
+| estaVacia, getTamano, getInicio | O(1) |
+| menorIgual | O(1) |
+| dividir | O(n) |
+| mezclar | O(n) |
+| mergeSort | O(n log n) |
+| ordenar | O(n log n) |
+| cargarMascotas | O(n) |
+| mostrarTodas | O(n) |
+| guardarMascotas | O(n) |
+| agregarMascota | O(n) |
 
 Notas:
 - `mergeSort` divide la lista a la mitad cada vez (log n niveles) y en cada nivel `dividir` y `mezclar` recorren n nodos. Por eso sale O(n log n).
