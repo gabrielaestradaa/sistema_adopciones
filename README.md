@@ -44,8 +44,8 @@ n = número de mascotas.
 | Constructores, getters y mostrar de Mascota | O(1) |
 | Constructor de la lista | O(1) |
 | vaciar y destructor | O(n) |
-| agregarAlFina` | O(1) |
-| siguienteI` | O(n) |
+| agregarAlFinal | O(1) |
+| siguienteID | O(n) |
 | estaVacia, getTamano, getInicio | O(1) |
 | menorIgual | O(1) |
 | dividir | O(n) |
